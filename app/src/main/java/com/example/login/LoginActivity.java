@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView txtLogin, txtSenha;
+    TextView txtLogin, txtSenha, txtEsqueceuSenha;
     EditText edtLogin, edtSenha;
     Button btnAcessar;
 
@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
         txtLogin = findViewById(R.id.txtLogin);
         txtSenha = findViewById(R.id.txtSenha);
+        txtEsqueceuSenha = findViewById(R.id.txtEsqueceuSenha);
 
         edtLogin = findViewById(R.id.edtUsuario);
         edtSenha = findViewById(R.id.edtSenha);
@@ -35,16 +36,16 @@ public class LoginActivity extends AppCompatActivity {
                     String senha =  edtSenha.getText().toString();
 
 
-                    if(login.equals("Gabriel") && senha.equals("123")){
-                        alert("Login autorizado");
+                    if(login.equals("gabriel") && senha.equals("123")){
+                        alert("Usuário Logado");
                     }else {
-                        if (login.equals("Kauana") && senha.equals("123")) {
-                            alert("Login autorizado");
+                        if (login.equals("kauana") && senha.equals("123")) {
+                            alert("Usuário Logado");
                         }else {
-                            if (login.equals("Jonas") && senha.equals("123")){
-                                alert("Login autorizado");
+                            if (login.equals("jonas") && senha.equals("123")){
+                                alert("Usuário Logado");
                             }else {
-                                alert("Login incorreto");
+                                alert("Usuário inexistente!");
                             }
                         }
                     }
@@ -52,11 +53,40 @@ public class LoginActivity extends AppCompatActivity {
                 }catch (Exception ex){
 
                 }
-
-
             }
         });
+
+        txtEsqueceuSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    String login = edtLogin.getText().toString();
+                    String senha =  edtSenha.getText().toString();
+
+
+                    if(login.equals("Gabriel")){
+                        alert("senha alpha, Gabriel");
+                    }else {
+                        if (login.equals("Kauana")) {
+                            alert("senha alpha, Kauana");
+                        }else {
+                            if (login.equals("Jonas")){
+                                alert("senha alpha, Jonas");
+                            }else {
+                                alert("Usuário inexistente!");
+                            }
+                        }
+                    }
+
+                }catch (Exception ex){
+
+                }
+            }
+        });
+
     }
+
+
 
     private void alert(String s) {
         Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
